@@ -607,6 +607,9 @@ class AppinioSwiperController extends ChangeNotifier {
   ///
   /// The default direction is set by the attached [AppinioSwiper] widget.
   Future<void> swipeDefault() async {
+    if (_attachedSwiper == null) {
+      return;
+    }
     _assertIsAttached();
     await _attachedSwiper!._onSwipeDefault();
     notifyListeners();
@@ -614,6 +617,9 @@ class AppinioSwiperController extends ChangeNotifier {
 
   /// Swipe the card to the left side.
   Future<void> swipeLeft() async {
+    if (_attachedSwiper == null) {
+      return;
+    }
     _assertIsAttached();
     await _attachedSwiper!._onSwipe(AxisDirection.left);
     notifyListeners();
@@ -621,6 +627,9 @@ class AppinioSwiperController extends ChangeNotifier {
 
   /// Swipe the card to the right side.
   Future<void> swipeRight() async {
+    if (_attachedSwiper == null) {
+      return;
+    }
     _assertIsAttached();
     // ignore: unawaited_futures
     _attachedSwiper!._onSwipe(AxisDirection.right);
@@ -629,6 +638,9 @@ class AppinioSwiperController extends ChangeNotifier {
 
   /// Unswipe the card.
   Future<void> unswipe() async {
+    if (_attachedSwiper == null) {
+      return;
+    }
     _assertIsAttached();
     await _attachedSwiper!._onUnswipe();
     notifyListeners();
@@ -636,6 +648,9 @@ class AppinioSwiperController extends ChangeNotifier {
 
   /// Swipe the card to the top.
   Future<void> swipeUp() async {
+    if (_attachedSwiper == null) {
+      return;
+    }
     _assertIsAttached();
     await _attachedSwiper!._onSwipe(AxisDirection.up);
     notifyListeners();
@@ -643,6 +658,9 @@ class AppinioSwiperController extends ChangeNotifier {
 
   /// Swipe the card to the bottom.
   Future<void> swipeDown() async {
+    if (_attachedSwiper == null) {
+      return;
+    }
     _assertIsAttached();
     await _attachedSwiper!._onSwipe(AxisDirection.down);
     notifyListeners();
@@ -657,6 +675,9 @@ class AppinioSwiperController extends ChangeNotifier {
     required Duration duration,
     required Curve curve,
   }) async {
+    if (_attachedSwiper == null) {
+      return;
+    }
     _assertIsAttached();
     await _attachedSwiper!._animateTo(
       target,
