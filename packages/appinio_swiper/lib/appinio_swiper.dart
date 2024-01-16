@@ -278,7 +278,10 @@ class _AppinioSwiperState extends State<AppinioSwiper>
     });
     await _previousActivityFuture;
     widget.onSwipeEnd?.call(previousIndex, targetIndex, newActivity);
-    setState(() {});
+
+    if (disposedSwipeActivity == false) {
+      setState(() {});
+    }
   }
 
   Future<void> _animateTo(
